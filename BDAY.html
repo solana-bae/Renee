@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Reneé!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb);
+            animation: backgroundGradient 10s infinite alternate;
+        }
+
+        @keyframes backgroundGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            margin: 20px auto;
+            color: #fff;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        .balloons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .balloon {
+            width: 100px;
+            height: 150px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            position: relative;
+            animation: float 3s infinite ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background: #fff;
+        }
+
+        .balloon:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .surprise-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .surprise-btn:hover {
+            transform: scale(1.1);
+            background-color: #ff3d3d;
+        }
+
+        .hidden-message {
+            display: none;
+            font-size: 2rem;
+            color: #fff;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        img {
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday! 🎉</h1>
+    <p class="message">Wishing you a day filled with love, laughter, and joy!(hover over the pictures for a surprise😉)</p>
+
+    <div class="balloons">
+        <div class="balloon" style="background-color: #ff6f61;"></div>
+        <div class="balloon" style="background-color: #ffd700;"></div>
+        <div class="balloon" style="background-color: #42a5f5;"></div>
+    </div>
+
+    <img src="C:\Users\user\Downloads\18th birthday cake (1).jpeg" alt="Birthday" title="You can look but you can't eat!!">
+    <img src="C:\Users\user\Downloads\57e51f61-d82c-42a3-866d-796485fe64b1.jpeg" alt="Celebration" title="My babe also says happy bday">
+    
+    <button class="surprise-btn" onclick="askForWish()">Click to make a wish!</button>
+    <div class="hidden-message" id="hiddenMessage">🎈 Your wish has been saved! Have an amazing day! 🎈</div>
+
+    <script>
+        function askForWish() {
+            const wish = prompt("Make a wish before opening the surprise:");
+            if (wish) {
+                alert("Your wish is: " + wish + ". Well delulu is the solulu🤣");
+                revealMessage();
+            } else {
+                alert("No wish? Don't worry, the surprise is still here for you!");
+                revealMessage();
+            }
+        }
+
+        function revealMessage() {
+            const hiddenMessage = document.getElementById('hiddenMessage');
+            hiddenMessage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
